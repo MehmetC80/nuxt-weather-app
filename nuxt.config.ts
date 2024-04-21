@@ -2,4 +2,10 @@
 export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: ["@nuxtjs/tailwindcss", "@nuxt/image"],
+  runtimeConfig: {
+    public: {
+      apiBase: process.env.API_BASE,
+      apiSecretKey: process.env.API_KEY,
+    },
+  },
 });
