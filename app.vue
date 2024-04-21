@@ -121,6 +121,10 @@ function handleInputClick() {
 const onEnter = () => {
   handleInputClick();
 };
+
+const handleReturnHome = () => {
+  window.location.reload();
+};
 </script>
 
 <template>
@@ -167,6 +171,18 @@ const onEnter = () => {
         </button>
       </div>
     </div>
+  </div>
+  <div
+    v-else
+    class="flex flex-col gap-4 justify-center items-center h-screen bg-slate-900"
+  >
+    <h3 class="text-4xl text-gray-400">Etwas ist schiefgelaufen</h3>
+    <p
+      @click="handleReturnHome"
+      class="rounded px-4 py-2 text-4xl text-gray-400 cursor-pointer hover:bg-yellow-500 duration-300 transition-colors hover:text-white"
+    >
+      zurück
+    </p>
   </div>
 </template>
 
