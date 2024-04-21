@@ -76,7 +76,14 @@ const background = ref("");
 //   return response;
 // });
 
-const date = ref(new Date(new Date().getTime() - 25200 * 1000));
+const date = new Date().toLocaleDateString("de-DE", {
+  weekday: "long",
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+  hour: "2-digit",
+  minute: "2-digit",
+});
 
 const { data: city, error } = await useAsyncData(
   "city",
@@ -123,7 +130,9 @@ const onEnter = () => {
 };
 
 const handleReturnHome = () => {
-  window.location.reload();
+  if (cookie.value) search.value = cookie.value;
+
+  search.value = "Berlin";
 };
 </script>
 
